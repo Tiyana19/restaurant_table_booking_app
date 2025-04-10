@@ -1,13 +1,11 @@
-// js/restaurant-list.js
-
 document.addEventListener("DOMContentLoaded", () => {
     const restaurantList = document.getElementById("restaurantList");
     const searchForm = document.getElementById("searchForm");
   
-    // Load all restaurants on page load
+    
     fetchRestaurants();
   
-    // Search handler
+  
     searchForm.addEventListener("submit", async (e) => {
       e.preventDefault();
   
@@ -49,14 +47,13 @@ document.addEventListener("DOMContentLoaded", () => {
           
             restaurantList.appendChild(div);
           
-            // Show booking form when 'Book' button is clicked
             const bookBtn = div.querySelector(".book-btn");
             const form = div.querySelector(".booking-form");
             bookBtn.addEventListener("click", () => {
               form.classList.toggle("hidden");
             });
           
-            // Handle booking form submission
+            
             form.addEventListener("submit", async (e) => {
               e.preventDefault();
           
@@ -79,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const result = await res.json();
           
                 if (res.ok) {
-                  // ✅ Save to localStorage and redirect to confirmation
+                
                   localStorage.setItem("latestBooking", JSON.stringify({
                     restaurantName: restaurant.name,
                     date,

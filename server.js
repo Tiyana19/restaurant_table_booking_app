@@ -17,17 +17,12 @@ const app = express();
 app.use(cors());
 
 
-
 app.use('/api', reservationRoutes);
 app.use(reservationRoutes);
 
 app.use(profileRoutes);
 
-
 app.use(express.json()); 
-
-
-
 
 
 app.use(express.static(path.join(__dirname, '../frontend')));
@@ -54,37 +49,24 @@ app.post('/test-sms', async (req, res) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-// 💡 Add this block after app is created
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per window
+  windowMs: 15 * 60 * 1000, 
+  max: 100, 
   message: "Too many requests from this IP, please try again later"
 });
 
-// 💡 Apply the rate limiter globally
+
 app.use(limiter);
 
-// then continue with middleware setup...
 app.use(express.json());
 
 
 const restaurants = [
     {
       id: 1,
-      name: "Sushi World",
-      location: "New York",
-      cuisine: "Japanese"
+      name: "Gypsy",
+      location: "Jodhpur",
+      cuisine: "Rajasthani"
     },
     {
       id: 2,
@@ -100,21 +82,11 @@ const restaurants = [
     }
   ];
   
- 
-
-
-
-
-
-
 
 
 app.get('/', (req, res) => {
   res.send('Hello from your restaurant backend!');
 });
-
-
-
 
 
 app.post('/signup', [
@@ -151,13 +123,6 @@ app.post('/signup', [
     res.status(500).json({ message: 'Something went wrong' });
   }
 });
-
-
-
-
-
-
-
 
 
 
@@ -200,14 +165,6 @@ app.post('/login', [
   
 
 
-
-
-
-
-  
-
-
-
   app.post('/reserve', authenticateToken, async (req, res) => {
     const { restaurantId, date, time, numberOfGuests } = req.body;
   
@@ -242,7 +199,7 @@ app.post('/login', [
         },
       });
   
-      // ✉️ Send confirmation email
+      
       await sendConfirmationEmail(
         user.email,
         'Reservation Confirmed',
@@ -261,20 +218,6 @@ app.post('/login', [
     }
   });
       
-      
-  
-
-  
-  
-  
-
-
-
-
-
-
-
-
 
 
 app.get('/restaurants', async (req, res) => {
@@ -287,14 +230,6 @@ app.get('/restaurants', async (req, res) => {
     }
   });
 
-  
-
-
-
-
-
-  
-// Search restaurants by query ?name=...&location=...&cuisine=...
 app.get('/restaurants/search', (req, res) => {
     const { name, location, cuisine } = req.query;
   
@@ -323,15 +258,6 @@ app.get('/restaurants/search', (req, res) => {
   
 
 
-
-
-
-  
-  
-
-
-
-
   app.get('/reservations', authenticateToken, async (req, res) => {
     try {
       const user = await prisma.user.findUnique({
@@ -354,24 +280,28 @@ app.get('/restaurants/search', (req, res) => {
   
   
   
-
-
-
-
-
-
-
-
-
-
-  
 app.post('/seed-restaurants', async (req, res) => {
   try {
     await prisma.restaurant.createMany({
         data: [
-          { name: "Sushi World", location: "New York", cuisine: "Japanese", capacity: 40 },
-          { name: "Pasta Palace", location: "Los Angeles", cuisine: "Italian", capacity: 60 },
-          { name: "Curry House", location: "San Francisco", cuisine: "Indian", capacity: 50 }
+          { 
+            name: "Sushi World", 
+            location: "New York", 
+            cuisine: "Japanese", 
+            capacity: 40 
+          },
+          { 
+            name: "Pasta Palace", 
+            location: "Los Angeles", 
+            cuisine: "Italian", 
+            capacity: 60 
+          },
+          { 
+            name: "Curry House", 
+            location: "San Francisco", 
+            cuisine: "Indian", 
+            capacity: 50 
+          }
         ],
         skipDuplicates: true
       });
@@ -383,12 +313,6 @@ app.post('/seed-restaurants', async (req, res) => {
     res.status(500).json({ message: 'Something went wrong' });
   }
 });
-
-  
-
-
-
-
 
 
 app.delete('/reservations/:id', authenticateToken, async (req, res) => {
@@ -412,13 +336,6 @@ app.delete('/reservations/:id', authenticateToken, async (req, res) => {
   });
   
   
-
-
-  
-
-
-
-
 
 app.listen(3000, () => {
   console.log('Server running at http://localhost:3000');

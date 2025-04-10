@@ -35,6 +35,6 @@ model Booking {
   restaurantId   Int
   date           String
   time           String
-  numberOfGuests Int      // ✅ Make sure this line is there
+  numberOfGuests Int      
 }
 

@@ -1,4 +1,4 @@
-// js/load-navbar.js
+
 document.addEventListener("DOMContentLoaded", () => {
     fetch("navbar.html")
       .then(res => res.text())

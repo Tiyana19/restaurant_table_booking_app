@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const authMiddleware = require('./authMiddleware'); // make sure path is correct
-const { PrismaClient } = require('@prisma/client'); // adjust if your prisma client is elsewhere
+const authMiddleware = require('./authMiddleware'); 
+const { PrismaClient } = require('@prisma/client'); 
 const prisma = new PrismaClient();
 
-// GET /my-reservations
+
 router.get('/my-reservations', authMiddleware, async (req, res) => {
   try {
     const reservations = await prisma.booking.findMany({

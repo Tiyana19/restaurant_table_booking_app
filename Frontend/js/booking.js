@@ -1,5 +1,3 @@
-// js/booking.js
-
 document.addEventListener("click", (e) => {
     if (e.target.classList.contains("book-btn")) {
       const form = e.target.nextElementSibling;
@@ -19,7 +17,7 @@ document.addEventListener("click", (e) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer " + localStorage.getItem("token"), // assuming token is stored
+          Authorization: "Bearer " + localStorage.getItem("token"), 
         },
         body: JSON.stringify({ restaurantId: Number(restaurantId), date, time, numberOfGuests: Number(guests) }),
       })

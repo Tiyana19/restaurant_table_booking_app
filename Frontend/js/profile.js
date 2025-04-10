@@ -1,4 +1,3 @@
-// js/profile.js
 
 document.addEventListener("DOMContentLoaded", () => {
     const userInfo = document.getElementById("userInfo");
