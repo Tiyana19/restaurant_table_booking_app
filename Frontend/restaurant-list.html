@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant List</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <div id="navbarContainer"></div>
+  <div class="container">
+    <h1>Available Restaurants</h1>
+
+    <form id="searchForm">
+      <input type="text" id="searchName" placeholder="Search by name" />
+      <input type="text" id="searchLocation" placeholder="Location" />
+      <input type="text" id="searchCuisine" placeholder="Cuisine" />
+      <button type="submit">Search</button>
+    </form>
+
+    <div id="restaurantList" class="restaurant-list">
+      <!-- Restaurants will be added here by JS -->
+    </div>
+  </div>
+
+  <script src="js/load-navbar.js"></script>
+  <script src="js/restaurant-list.js"></script>
+  <script src="js/booking.js"></script>
+</body>
+</html>

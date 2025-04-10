@@ -1,0 +1,36 @@
+{
+  "name": "restaurant_table_booking_app",
+  "version": "1.0.0",
+  "description": "restaurant table booking backend application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tiyana19/restaurant_table_booking_app.git"
+  },
+  "keywords": [
+    "node",
+    "booking"
+  ],
+  "author": "Taruna Rajpurohit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tiyana19/restaurant_table_booking_app/issues"
+  },
+  "homepage": "https://github.com/Tiyana19/restaurant_table_booking_app#readme",
+  "dependencies": {
+    "@prisma/client": "^6.6.0",
+    "bcrypt": "^5.1.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.0",
+    "express-validator": "^7.2.1",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^6.10.0",
+    "twilio": "^5.5.2"
+  },
+  "devDependencies": {
+    "prisma": "^6.6.0"
+  }
+}

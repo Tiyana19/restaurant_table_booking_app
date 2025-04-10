@@ -1,0 +1,27 @@
+<!-- profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Profile</title>
+  <link rel="stylesheet" href="css/profile.css" />
+</head>
+<body>
+  <div class="profile-container">
+    <h2>User Profile</h2>
+    <div id="userInfo"></div>
+
+    <form id="updateProfileForm">
+      <h3>Update Profile</h3>
+      <input type="text" id="newName" placeholder="New Name" />
+      <input type="password" id="newPassword" placeholder="New Password" />
+      <button type="submit">Update</button>
+    </form>
+
+    <button id="deleteAccountBtn" class="danger-btn">Delete Account</button>
+  </div>
+
+  <script src="js/profile.js"></script>
+</body>
+</html>
