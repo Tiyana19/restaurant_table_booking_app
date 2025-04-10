@@ -1,14 +1,14 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const token = localStorage.getItem("token");
     const reservationList = document.getElementById("reservationList");
-  
+    const BACKEND_URL = 'https://restaurant-table-booking-app.onrender.com';
     if (!token) {
       reservationList.innerHTML = "<p>Please log in to view your reservations.</p>";
       return;
     }
   
     try {
-      const res = await fetch("http://localhost:3000/reservations", {
+      const res = await fetch(`${BACKEND_URL}/reservations`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

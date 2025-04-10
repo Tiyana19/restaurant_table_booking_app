@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
               const date = form.querySelector(".booking-date").value;
               const time = form.querySelector(".booking-time").value;
               const numberOfGuests = form.querySelector(".booking-guests").value;
-              
+              const BACKEND_URL = "https://restaurant-table-booking-app.onrender.com";
               try {
                 const res = await fetch(`${BACKEND_URL}/reserve`, {
                   method: "POST",

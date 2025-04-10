@@ -1,6 +1,6 @@
 const form = document.getElementById('loginForm');
 const errorDiv = document.getElementById('error');
-
+const BACKEND_URL = "https://restaurant-table-booking-app.onrender.com";
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
 
@@ -8,7 +8,7 @@ form.addEventListener('submit', async (e) => {
   const password = document.getElementById('password').value;
 
   try {
-    const response = await fetch('http://localhost:3000/login', {
+    const response = await fetch(`${BACKEND_URL}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

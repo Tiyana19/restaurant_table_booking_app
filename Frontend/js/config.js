@@ -1,1 +1,1 @@
-const BACKEND_URL = "https://tiyana19.github.io/restaurant_table_booking_app/"
+const BACKEND_URL = "https://restaurant-table-booking-app.onrender.com"

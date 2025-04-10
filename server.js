@@ -1,7 +1,8 @@
 const express = require('express');
 const authenticateToken = require('./authMiddleware');
 const path = require('path');
-const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken'); 
+require('dotenv').config()
 const SECRET = process.env.SECRET_KEY;
 const bcrypt = require('bcrypt');
 const { PrismaClient } = require('@prisma/client');
@@ -337,6 +338,6 @@ app.delete('/reservations/:id', authenticateToken, async (req, res) => {
   
   
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
   console.log('Server running at http://localhost:3000');
 });

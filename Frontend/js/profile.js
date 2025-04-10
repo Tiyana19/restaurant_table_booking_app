@@ -3,11 +3,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const userInfo = document.getElementById("userInfo");
     const updateForm = document.getElementById("updateProfileForm");
     const deleteBtn = document.getElementById("deleteAccountBtn");
-  
+    const BACKEND_URL = 'https://restaurant-table-booking-app.onrender.com';
     const token = localStorage.getItem("token");
   
     // Fetch current user info
-    fetch("http://localhost:3000/me", {
+    fetch(`${BACKEND_URL}/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
