@@ -65,9 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
               const date = form.querySelector(".booking-date").value;
               const time = form.querySelector(".booking-time").value;
               const numberOfGuests = form.querySelector(".booking-guests").value;
-          
+              
               try {
-                const res = await fetch("http://localhost:3000/reserve", {
+                const res = await fetch(`${BACKEND_URL}/reserve`, {
                   method: "POST",
                   headers: {
                     "Content-Type": "application/json",

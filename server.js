@@ -12,8 +12,10 @@ const { sendConfirmationEmail } = require('./services/mailService');
 const { sendSMS } = require('./services/smsService');
 const profileRoutes = require('./profileRoutes');
 const reservationRoutes = require('./reservationRoutes');
-
+const cors = require('cors');
 const app = express();
+app.use(cors());
+
 
 
 app.use('/api', reservationRoutes);
